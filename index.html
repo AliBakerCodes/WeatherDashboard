@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Weather Dashboard</a>
+        </div>
+      </div>
+    </nav>
+    <main class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <div class="card col" id="search-card">
+            <label for="search"><h3>Search for a City:</h3></label>
+            <form id="search-form">
+              <input
+                id="search"
+                type="text"
+                autofocus="true"
+                class="form-control form-control-lg mb-3"
+                placeholder="Atlanta"
+              />
+              <button type="submit" class="btn btn-primary btn-block mb-3">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+        <section class="col-9">
+          <div id="currentCity" class="card mb-3">
+            <div class="card-body">
+              <h2 class="card-title" id="city-header">Atlanta</h2>
+              <ul id="currentConditions">
+                <li>Temp: <span id="temp"></span></li>
+                <li>Wind: <span id="wind"></span></li>
+                <li>Humidity: <span id="humidity"></span></li>
+                <li>UV Index: <span id="uv"></span></li>
+              </ul>
+            </div>
+          </div>
+          <h5>5 Day Forcast:</h5>
+          <div id="forcast" class="d-flex">
+            <div class="card m-3 bg-dark text-light forcast-card" style="width: 10rem">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <ul id="currentConditions">
+                  <li>icon</li>
+                  <li>Temp:</li>
+                  <li>Wind:</li>
+                  <li>Humidity:</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
