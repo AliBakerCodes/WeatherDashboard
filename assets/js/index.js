@@ -87,11 +87,11 @@ var getApi = function(apiUrl) {
 
 var renderSearchHistory= function() {
   searchHistoryEL.innerHTML="";
+  var newButtonDiv = ""
   weatherSearchHistory.forEach(function (ele) {
-    var newButtonDiv = document.createElement("div");
-    newButtonDiv.innerHTML =
-      `<button type="submit" class="btn btn-primary btn-block mb-3 history" data-lat="${ele.lat}" data-long="${ele.lon}" data-name="${ele.name}">${ele.name}</button>`;
-    searchHistoryEL.append(newButtonDiv);  
+    newButtonDiv= newButtonDiv + 
+      `<button type="button" class="btn btn-primary btn-block mb-3 history" data-lat="${ele.lat}" data-long="${ele.lon}" data-name="${ele.name}">${ele.name}</button>`;
+    searchHistoryEL.innerHTML=newButtonDiv;  
   });
 }
 
@@ -105,7 +105,7 @@ function renderWeather (results) {
   currentTempEl.textContent=results.current.temp;
   currentWindEl.textContent=results.current.wind_speed;
   currentHumidityEl.textContent=results.current.humidity;
-  currentUVEl.innerHTML=`UV Index: ${uvi}`;
+  currentUVEl.innerHTML=uvi;
   
   var severity; //choose the severity class bassed on the UV Index Scale
   switch (true) {
@@ -185,4 +185,11 @@ function getItem() {
   }
 }
 searchFormEl.addEventListener('submit', formSubmitHandler);
+searchHistoryEL.addEventListener('click',function(event){
+  var cityName=event.target.getAttribute('data-name');
+    console.log(cityName)
+    searchInputEl.value=cityName;
+    formSubmitHandler(event);
+    
+});
 init();
