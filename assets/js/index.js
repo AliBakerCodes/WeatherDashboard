@@ -49,7 +49,7 @@ var getGeo = async function(geo) {
 
 var getWeather = async function() {
   console.log(currentSearch);
-  var weatherString=`${WEATHER_URL}${currentSearch.lat}&lon=${currentSearch.lon}&appid=${API_KEY}`
+  var weatherString=`${WEATHER_URL}${currentSearch.lat}&lon=${currentSearch.lon}&units=imperial&appid=${API_KEY}`
   console.log("weatherString: " + weatherString)
   let results;
   results = await getApi(weatherString);
@@ -77,27 +77,31 @@ var getApi = function(apiUrl) {
 
 function renderWeather (results) {
   console.log("render")
-  cityHeaderEl.textContent=currentSearch.name;
+  //Render current day's results
+  var currentDay=results.current
+  cityHeaderEl.innerHTML=`${currentSearch.name} (${moment.unix(currentDay.dt).format("MM/DD/YYYY")}) <img src=" http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png"/>`;
   currentTempEl.textContent=results.current.temp;
   currentWindEl.textContent=results.current.wind_speed;
   currentHumidityEl.textContent=results.current.humidity;
   currentUVEl.textContent=results.current.uvi;
+  
 
-  for(i=0;i<5;i++){
+  for(i=0;i<5;i++){ //Render the 5 day Forcast cards
     var day = results.daily[i];
     console.log(day)
-    var date = moment.unix(day.dt).format("mm/dd/yyyy")
+    var date = moment.unix(day.dt).format("MM/DD/YYYY")
     console.log(date)
     var divEL=document.createElement('div')
     divEL.innerHTML = `
-    <div class="card m-3 bg-dark text-light forcast-card" style="width: 10rem">
+    <div class="card mr-3 bg-dark text-light forcast-card">
     <div class="card-body">
-      <h5 class="card-title">${day}</h5>
+      <h5 class="card-title">${date}</h5>
       <ul id="currentConditions">
         <li>icon</li>
-        <li>Temp:${day.temp.max}</li>
-        <li>Wind:${day.wind_speed}</li>
-        <li>Humidity:${day.humidity}</li>
+        <li>Hi: ${day.temp.max}°F</li>
+        <li>Low: ${day.temp.max}°F</li>
+        <li>Wind: ${day.wind_speed} mph</li>
+        <li>Humidity: ${day.humidity}%</li>
       </ul>
     </div>
   </div>`
@@ -113,4 +117,5 @@ function search(searchString) {
   
   
 }
-searchFormEl.addEventListener('submit', formSubmitHandler);
+// searchFormEl.addEventListener('submit', formSubmitHandler);
+search("Atlanta")

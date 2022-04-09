@@ -34,7 +34,7 @@
           <div class="col" id="search-card">
             <label for="search"><h3>Search for a City:</h3></label>
             <div class="form-group">
-            <form id="search-form">
+            <form id="search-form" class="border-bottom">
               <input
                 id="search"
                 type="text"
@@ -49,14 +49,14 @@
           </form>
           </div>
         </div>
-        <section class="col-9">
+        <section class="col-6">
           <div id="currentCity" class="card mb-3">
             <div class="card-body">
               <h2 class="card-title" id="city-header"></h2>
               <ul id="currentConditions">
-                <li>Temp: <span id="temp"></span></li>
-                <li>Wind: <span id="wind"></span></li>
-                <li>Humidity: <span id="humidity"></span></li>
+                <li>Temp: <span id="temp"></span>°F</li>
+                <li>Wind: <span id="wind"></span> mph</li>
+                <li>Humidity: <span id="humidity"></span>%</li>
                 <li>UV Index: <span id="uv"></span></li>
               </ul>
             </div>
