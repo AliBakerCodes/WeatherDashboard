@@ -31,8 +31,9 @@
     <main class="container-fluid">
       <div class="row">
         <div class="col-3">
-          <div class="card col" id="search-card">
+          <div class="col" id="search-card">
             <label for="search"><h3>Search for a City:</h3></label>
+            <div class="form-group">
             <form id="search-form">
               <input
                 id="search"
@@ -44,13 +45,14 @@
               <button type="submit" class="btn btn-primary btn-block mb-3">
                 Search
               </button>
-            </form>
+            </div>
+          </form>
           </div>
         </div>
         <section class="col-9">
           <div id="currentCity" class="card mb-3">
             <div class="card-body">
-              <h2 class="card-title" id="city-header">Atlanta</h2>
+              <h2 class="card-title" id="city-header"></h2>
               <ul id="currentConditions">
                 <li>Temp: <span id="temp"></span></li>
                 <li>Wind: <span id="wind"></span></li>
@@ -61,21 +63,14 @@
           </div>
           <h5>5 Day Forcast:</h5>
           <div id="forcast" class="d-flex">
-            <div class="card m-3 bg-dark text-light forcast-card" style="width: 10rem">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <ul id="currentConditions">
-                  <li>icon</li>
-                  <li>Temp:</li>
-                  <li>Wind:</li>
-                  <li>Humidity:</li>
-                </ul>
-              </div>
-            </div>
           </div>
         </section>
       </div>
     </main>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/index.js"></script>
   </body>
