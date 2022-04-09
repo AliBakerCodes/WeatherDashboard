@@ -8,3 +8,28 @@
 .forcast-card {
   width: 11rem;
 }
+
+.low {
+  background-color: green;
+}
+
+.moderate {
+  background-color: yellow;
+}
+
+.high {
+  background-color: orange;
+}
+
+.veryHigh {
+  background-color: red;
+}
+
+.extreme {
+  background-color: purple;
+}
+
+#uv {
+  color:white;
+  padding-right:2px;
+}
