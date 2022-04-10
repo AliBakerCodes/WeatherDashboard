@@ -90,7 +90,7 @@ var renderSearchHistory= function() {
   var newButtonDiv = ""
   weatherSearchHistory.forEach(function (ele) {
     newButtonDiv= newButtonDiv + 
-      `<button type="button" class="btn btn-primary btn-block mb-3 history" data-lat="${ele.lat}" data-long="${ele.lon}" data-name="${ele.name}">${ele.name}</button>`;
+      `<button type="button" class="btn btn-secondary btn-block mb-3 history" data-lat="${ele.lat}" data-long="${ele.lon}" data-name="${ele.name}">${ele.name}</button>`;
     searchHistoryEL.innerHTML=newButtonDiv;  
   });
 }
