@@ -11,7 +11,7 @@ var forcastEl=document.querySelector('#forcast');
 var searchHistoryEL=document.querySelector('#search-history')
 var weatherSearchHistory;
 // Variables and objects
-const GEO_URL = 'http://api.openweathermap.org/geo/1.0/direct?q='
+const GEO_URL = 'https://api.openweathermap.org/geo/1.0/direct?q='
 const WEATHER_URL='https://api.openweathermap.org/data/2.5/onecall?lat='
 const API_KEY='c78fe5213b32be1723e81e7b35ca6546'
 
@@ -100,7 +100,7 @@ function renderWeather (results) {
   //Render current day's results
   var currentDay=results.current
   var uvi=results.current.uvi
-  const ICON_URL="http://openweathermap.org/img/wn/"
+  const ICON_URL="https://openweathermap.org/img/wn/"
   cityHeaderEl.innerHTML=`${currentSearch.name} (${moment.unix(currentDay.dt).format("MM/DD/YYYY")}) <img src="${ICON_URL}${currentDay.weather[0].icon}@2x.png"/>`;
   currentTempEl.textContent=results.current.temp;
   currentWindEl.textContent=results.current.wind_speed;
